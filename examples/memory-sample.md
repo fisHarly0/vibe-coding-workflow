@@ -17,7 +17,7 @@
 ## 项目档案
 
 - [活跃项目清单](project_active_projects.md) — 三个并行项目的入口与状态
-- [net-blog](project_net_blog.md) — LIVE @ hlhaya.cn，正在做存档归档
+- [net-blog](project_net_blog.md) — LIVE @ hlhaya.cn，正在做日志归档
 - [闲置农场 Godot 版](project_idle_farm.md) — 主开发分支在 D 盘，接续读 HANDOFF.md
 - [TripStar 本地化](project_tripstar.md) — 本地部署完成，LLM 重试补丁在 .venv 里
 
