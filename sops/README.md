@@ -25,6 +25,7 @@
 | [06](06-no-test-framework-self-test.md) | 无测试框架时的 .mjs 自测 | 项目没装 jest/vitest 但要测纯数学公式 |
 | [07](07-project-archive-five-piece.md) | 项目档案五件套（接续体系） | 项目进入中长线（10+ 次会话） |
 | [08](08-experience-repo-and-writeback.md) | 经验沉淀仓与回送四件套 | 并行多个项目，经验要跨项目流动 |
+| [09](09-hook-guards.md) | Hook 守卫：规范的机器强制 | 规范写进文档后仍反复被违反 |
 
 ## 怎么用
 
@@ -33,6 +34,7 @@
 - **已有项目继续做**：读 [03](03-new-session-onboarding.md) 选 B 场景，依据需要翻 [02](02-five-phase-lifecycle.md)
 - **项目做大了**：接续文档从单 HANDOFF 升级为 [07 五件套](07-project-archive-five-piece.md)
 - **多项目并行**：建经验仓，按 [08](08-experience-repo-and-writeback.md) 回送
+- **规范反复被违反**：翻 [09](09-hook-guards.md)，把复发 2 次以上的规范机器化成 advisory hook
 - **小修小补**：选 [03](03-new-session-onboarding.md) 的 C 场景就够，其它跳过
 - **AI 约束查询**：所有 SOP 末尾都有「不要做什么」节，集中版见 [../AI-CONSTRAINTS.md](../AI-CONSTRAINTS.md)
 

@@ -161,6 +161,7 @@
 - 不修改 ❌ 或 ⏳ 的条目
 - 修改 CLAUDE.md / MEMORY.md 时要保留原有结构，不重写整个文件
 - 每条 Proposal 单独 commit，便于回滚
+- **优先落地为可执行机制，而非只改文档**：经验教训是「对策记了 ≠ 对策被执行」。提案若适合机器化（动作发生时提醒/拦截），优先落成 hook（见 [../sops/09-hook-guards.md](../sops/09-hook-guards.md)）或检查脚本；CLAUDE.md / MEMORY.md 只承载机器做不了的部分
 
 ---
 

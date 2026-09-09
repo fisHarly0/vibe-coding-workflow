@@ -15,6 +15,7 @@
 | **会话间上下文断裂** —— 每次新对话从零开始 | HANDOFF.md + MEMORY.md 跨会话记忆持久化 |
 | **多技术栈认知漂移** —— Web/游戏/Python 频繁切换 | 角色化 Sub-Agent 分工，主对话只做决策 |
 | **片段级响应不够** —— 需要架构级协同思考 | Plan-Act-Observe 闭环 + 多 Agent 评审 |
+| **规范靠自觉遵守** —— 写进文档还是反复被违反 | advisory hook 机器强制，动作发生时自动提醒 |
 
 ## 功能特性
 
@@ -23,21 +24,26 @@
 - **跨会话接续**：轻量 HANDOFF.md 起步，中长线升级为项目档案五件套（30+ 轮接续不失真）
 - **跨项目经验流动**：独立经验仓 + 回送四件套闸门（磁盘/索引/体检/自描述），沉淀不腐烂
 - **自我迭代系统**：六步闭环让 Agent 从反思中持续改善自身行为
+- **机器强制闸门（hook 守卫）**：advisory hook 把高频规范从"文档约定"升级为动作发生时自动提醒，对治"对策记了 ≠ 对策被执行"
 - **11 类 AI 协作约束**：从真实踩坑中冷凝出的工程止损线
 - **完整 SOP 体系**：从开新会话到收尾沉淀的标准化操作流程
-- **零依赖**：纯 Markdown 文件，不需要安装任何框架或运行时
+- **零依赖起步**：核心是纯 Markdown，零安装零运行时；可选启用 hooks/ 守卫脚本（Windows PowerShell）
 
 ## 技术栈
 
-- **语言**：纯 Markdown（无代码）
+- **语言**：Markdown 为主 + 4 个可选的 PowerShell 守卫脚本（hooks/，Windows）
 - **工具**：git（唯一技术依赖）
-- **运行时**：无。所有内容是指导性 SOP 和可复用模板，不是可执行程序
+- **运行时**：核心内容无需运行时（指导性 SOP 与模板）；hook 为可选增强，需 Windows PowerShell
 
 ## 快速开始
 
 ### 零配置路径（推荐）：让 AI 自己装好这套工作流
 
 把 [BOOTSTRAP.md](BOOTSTRAP.md) 作为第一条消息发给 Claude Code（任何机器、包括全新电脑），它会自检环境 → 访谈你一轮 → 自己生成 MEMORY.md / CLAUDE.md / 项目档案，然后按本仓库的流程走。你不需要记住任何规则。
+
+### 完全不懂技术？先读小白教程
+
+如果你刚接触 AI 辅助编程、或对命令行/git 不熟，先读 [TUTORIAL.md](TUTORIAL.md)，它把每一步拆到"跟着做就行"的颗粒度。
 
 下面是手动路径：
 
@@ -71,6 +77,7 @@ cp templates/MEMORY.md ~/.claude/MEMORY.md
 ```
 vibe-coding-workflow/
 ├── BOOTSTRAP.md               # 给 AI 读的自举协议（全新电脑一份文件起步）
+├── TUTORIAL.md                # 面向小白的零基础上手教程
 ├── AI-CONSTRAINTS.md          # 11 类 AI 协作约束总集（最核心文件）
 ├── README.md                  # 本文件
 ├── LICENSE                    # MIT 许可证
@@ -90,7 +97,13 @@ vibe-coding-workflow/
 │   ├── 05-modular-localization.md
 │   ├── 06-no-test-framework-self-test.md
 │   ├── 07-project-archive-five-piece.md
-│   └── 08-experience-repo-and-writeback.md
+│   ├── 08-experience-repo-and-writeback.md
+│   └── 09-hook-guards.md      #   hook 守卫：规范的机器强制
+├── hooks/                     # 可选的 advisory 守卫脚本（Windows PowerShell）
+│   ├── warn-commit-emoji.ps1  #   commit message 含 emoji 时提醒
+│   ├── warn-git-add-all.ps1   #   git add . / -A 时提醒（防 stage 他人 WIP）
+│   ├── warn-ps1-no-bom.ps1    #   含中文 .ps1 缺 UTF-8 BOM 时提醒
+│   └── remind-reflect.ps1     #   会话收尾轻提醒反思沉淀
 ├── templates/                 # 可复用模板
 │   ├── CLAUDE.md              #   项目级行为约定模板
 │   ├── HANDOFF.md             #   跨会话接续骨架模板
@@ -131,6 +144,7 @@ vibe-coding-workflow/
 | [06](sops/06-no-test-framework-self-test.md) | 无测试框架时的 .mjs 自测 | 项目没装 jest/vitest 但要测纯函数 |
 | [07](sops/07-project-archive-five-piece.md) | 项目档案五件套（接续体系） | 项目进入中长线（10+ 次会话） |
 | [08](sops/08-experience-repo-and-writeback.md) | 经验沉淀仓与回送四件套 | 并行多项目，经验要跨项目流动 |
+| [09](sops/09-hook-guards.md) | Hook 守卫：规范的机器强制 | 规范写进文档后仍反复被违反时 |
 
 ### AI 协作约束（顶层）—— 讲"哪些事 AI 不能做、为什么"
 
@@ -177,9 +191,15 @@ vibe-coding-workflow/
 
 [self-iteration/](self-iteration/) 目录包含一套可运行的自我迭代系统，让 Agent 从反思中持续改善自身行为。详见 [self-iteration/README.md](self-iteration/README.md)。
 
+### 机器强制闸门（hook 守卫）
+
+[hooks/](hooks/) 目录提供 4 个 advisory 守卫脚本，把高频规范从"文档约定"升级为 Claude Code 动作发生时的自动提醒（可选启用，仅 Windows PowerShell）。安装与配置见 [sops/09-hook-guards.md](sops/09-hook-guards.md)。
+
 ## 阅读路径
 
 **最快上手**：把 [BOOTSTRAP.md](BOOTSTRAP.md) 直接发给你的 AI，剩下的它来做
+
+**零基础**：从 [TUTORIAL.md](TUTORIAL.md) 开始，一步步跟着做
 
 **第一次接触**：README.md（本文件） → [docs/01-架构总览.md](docs/01-架构总览.md) → [sops/03-new-session-onboarding.md](sops/03-new-session-onboarding.md)
 
@@ -206,6 +226,10 @@ Copilot / Cursor 是代码补全工具，每次对话独立。本工作流解决
 **Q: self-iteration 系统安全吗？**
 
 安全。第 5 步（Apply 到 CLAUDE.md / MEMORY.md）必须人类批准，Agent 不能跳过。详见 [self-iteration/README.md](self-iteration/README.md) 的安全护栏。
+
+**Q: 必须装 hooks 吗？**
+
+不必须。核心工作流纯 Markdown 零依赖。当你发现某条规范"写进文档还是反复被违反"时，再按 [sops/09](sops/09-hook-guards.md) 把它机器化。
 
 ## 贡献指南
 
