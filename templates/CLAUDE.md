@@ -147,3 +147,7 @@
 ## 修订记录
 
 - <YYYY-MM-DD> 创建。复制自 vibe-coding-workflow templates/CLAUDE.md，按本项目情况裁剪。
+
+## 首次打开统一流程
+
+首次打开 Codex 或 Claude 时，遵循 D:\AAA PROJECT\real-vibecoding-harries\操作手册\首次打开统一流程.md；该稳定入口当前指向 操作手册\打开Codex与Claude-首次统一流程-v2.md（v2.0）。
