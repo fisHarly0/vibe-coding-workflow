@@ -55,6 +55,8 @@ flowchart LR
 | 独立任务适合并行处理 | [多 Agent 协作](sops/04-multi-agent-collaboration.md) | 可选，按任务授权使用 |
 | 某些操作反复遗漏检查 | [PowerShell hooks](sops/09-hook-guards.md) | 可选，Windows 提醒脚本 |
 | 希望整理跨项目经验 | [经验回送](sops/08-experience-repo-and-writeback.md)和[迭代协议](self-iteration/protocol.md) | 可选 |
+| 需要验证 AI 变更并准备发布 | [审查与发布](sops/10-review-and-release.md)、[审查模板](templates/REVIEW.md)和[PR 模板](.github/pull_request_template.md) | 按风险接入 |
+| 希望采用论文或前沿工程实践 | [研究资料转工作流](sops/11-research-to-workflow.md) | 记录来源、试用与撤销方法 |
 
 ## Hooks 能做什么
 

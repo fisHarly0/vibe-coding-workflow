@@ -29,6 +29,8 @@
 
 ## 怎么用
 
+新增流程可按任务读取 [10 变更审查与发布](10-review-and-release.md) 与 [11 从研究资料到工作流](11-research-to-workflow.md)。前者覆盖验证、风险和恢复，后者记录外部方法的采用依据与试用结果。
+
 - **全新机器 / 全新 AI**：直接把 [../BOOTSTRAP.md](../BOOTSTRAP.md) 发给 AI，让它自己走
 - **新项目从 day 1**：先读 [03](03-new-session-onboarding.md) + [01](01-context-and-plan-rules.md)，按 A 场景启动
 - **已有项目继续做**：读 [03](03-new-session-onboarding.md) 选 B 场景，依据需要翻 [02](02-five-phase-lifecycle.md)
