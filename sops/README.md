@@ -29,6 +29,8 @@
 
 ## 怎么用
 
+需求理解与方案选择使用 [12 信息四象限与优先复用](12-shared-understanding-and-reuse.md)，先补齐必要信息并检查现有实现和开源候选。
+
 新增流程可按任务读取 [10 变更审查与发布](10-review-and-release.md) 与 [11 从研究资料到工作流](11-research-to-workflow.md)。前者覆盖验证、风险和恢复，后者记录外部方法的采用依据与试用结果。
 
 - **全新机器 / 全新 AI**：直接把 [../BOOTSTRAP.md](../BOOTSTRAP.md) 发给 AI，让它自己走

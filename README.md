@@ -59,6 +59,7 @@ flowchart LR
 | 希望整理跨项目经验 | [经验回送](sops/08-experience-repo-and-writeback.md)和[迭代协议](self-iteration/protocol.md) | 可选 |
 | 需要验证 AI 变更并准备发布 | [审查与发布](sops/10-review-and-release.md)、[审查模板](templates/REVIEW.md)和[PR 模板](.github/pull_request_template.md) | 按风险接入 |
 | 希望采用论文或前沿工程实践 | [研究资料转工作流](sops/11-research-to-workflow.md) | 记录来源、试用与撤销方法 |
+| 需要补齐双方信息并选择省力方案 | [信息四象限与优先复用](sops/12-shared-understanding-and-reuse.md) | 告知、提问、探索，先查可复用实现 |
 
 ## Hooks 能做什么
 
